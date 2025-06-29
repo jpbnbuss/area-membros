@@ -5,6 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Área de Membros</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Detecta se é mobile
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+    function togglePDF(id, linkId) {
+      const el = document.getElementById(id);
+      const linkEl = document.getElementById(linkId);
+
+      if (isMobile) {
+        linkEl.click(); // abre o link no mobile
+      } else {
+        el.classList.toggle('hidden'); // mostra/oculta o iframe no desktop
+      }
+    }
+  </script>
 </head>
 <body class="bg-gray-100 text-gray-800 p-6">
 
@@ -14,16 +29,31 @@
     <!-- Módulo 1 -->
     <div class="mb-8 bg-white rounded-lg shadow-md p-4">
       <h2 class="text-xl font-semibold mb-2">Módulo 1</h2>
-      <iframe src="pdfs/modulo1.pdf" class="w-full h-[500px] border" frameborder="0"></iframe>
+      <button onclick="togglePDF('pdf1', 'link1')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition mb-4">
+        📄 Ver conteúdo
+      </button>
+      <!-- Link usado só no mobile -->
+      <a id="link1" href="pdfs/modulo1.pdf" target="_blank" class="hidden">Abrir PDF</a>
+      <!-- iframe só visível no desktop -->
+      <div id="pdf1" class="hidden">
+        <iframe src="pdfs/modulo1.pdf" class="w-full h-[500px] border rounded" frameborder="0"></iframe>
+      </div>
     </div>
 
     <!-- Módulo 2 -->
     <div class="mb-8 bg-white rounded-lg shadow-md p-4">
       <h2 class="text-xl font-semibold mb-2">Módulo 2</h2>
-      <iframe src="pdfs/modulo2.pdf" class="w-full h-[500px] border" frameborder="0"></iframe>
+      <button onclick="togglePDF('pdf2', 'link2')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition mb-4">
+        📄 Ver conteúdo
+      </button>
+      <a id="link2" href="pdfs/modulo2.pdf" target="_blank" class="hidden">Abrir PDF</a>
+      <div id="pdf2" class="hidden">
+        <iframe src="pdfs/modulo2.pdf" class="w-full h-[500px] border rounded" frameborder="0"></iframe>
+      </div>
     </div>
 
-    <!-- Adicione quantos módulos quiser seguindo o mesmo padrão -->
+    <!-- Adicione mais módulos seguindo o mesmo padrão -->
+
   </div>
 
 </body>
