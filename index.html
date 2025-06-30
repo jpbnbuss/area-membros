@@ -6,7 +6,6 @@
   <title>Área de Membros</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Detecta se é mobile
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
     function togglePDF(id, linkId) {
@@ -14,47 +13,109 @@
       const linkEl = document.getElementById(linkId);
 
       if (isMobile) {
-        linkEl.click(); // abre o link no mobile
+        linkEl.click();
       } else {
-        el.classList.toggle('hidden'); // mostra/oculta o iframe no desktop
+        el.classList.toggle('hidden');
       }
     }
   </script>
 </head>
 <body class="bg-gray-100 text-gray-800 p-6">
-
   <div class="max-w-4xl mx-auto">
     <h1 class="text-3xl font-bold mb-6 text-center">Protocolo Lipo de Intestino</h1>
 
     <!-- Módulo 1 -->
     <div class="mb-8 bg-white rounded-lg shadow-md p-4">
-      <h2 class="text-xl font-semibold mb-2">Módulo 1</h2>
+      <h2 class="text-xl font-semibold mb-1">1. O Protocolo</h2>
+      <p class="text-sm text-gray-600 mb-4">Entenda como funciona o protocolo e o passo a passo para aplicar corretamente.</p>
+
       <button onclick="togglePDF('pdf1', 'link1')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition mb-4">
         📄 Ver conteúdo
       </button>
-      <!-- Link usado só no mobile -->
-      <a id="link1" href="pdfs/modulo1.pdf" target="_blank" class="hidden">Abrir PDF</a>
-      <!-- iframe só visível no desktop -->
+      <a id="link1" href="pdfs/1-boasvindas.pdf" target="_blank" class="hidden">Abrir PDF</a>
       <div id="pdf1" class="hidden">
-        <iframe src="pdfs/modulo1.pdf" class="w-full h-[500px] border rounded" frameborder="0"></iframe>
+        <iframe src="pdfs/1-boasvindas.pdf" class="w-full h-[500px] border rounded" frameborder="0"></iframe>
       </div>
     </div>
 
     <!-- Módulo 2 -->
     <div class="mb-8 bg-white rounded-lg shadow-md p-4">
-      <h2 class="text-xl font-semibold mb-2">Módulo 2</h2>
-      <button onclick="togglePDF('pdf2', 'link2')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition mb-4">
-        📄 Ver conteúdo
-      </button>
-      <a id="link2" href="pdfs/modulo2.pdf" target="_blank" class="hidden">Abrir PDF</a>
-      <div id="pdf2" class="hidden">
-        <iframe src="pdfs/modulo2.pdf" class="w-full h-[500px] border rounded" frameborder="0"></iframe>
+      <h2 class="text-xl font-semibold mb-1">2. Cardápios Semanais</h2>
+      <p class="text-sm text-gray-600 mb-4">Acompanhe os cardápios organizados por semana para facilitar seu planejamento.</p>
+
+      <div class="mb-4">
+        <h3 class="text-base font-medium mb-2">Cardápio Semana 1</h3>
+        <button onclick="togglePDF('pdf2a', 'link2a')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+          📄 Ver conteúdo
+        </button>
+        <a id="link2a" href="pdfs/2-semana1-desinchaco-e-alivio.pdf" target="_blank" class="hidden">Abrir PDF</a>
+        <div id="pdf2a" class="hidden mt-2">
+          <iframe src="pdfs/2-semana1-desinchaco-e-alivio.pdf" class="w-full h-[500px] border rounded" frameborder="0"></iframe>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h3 class="text-base font-medium mb-2">Cardápio Semana 2</h3>
+        <button onclick="togglePDF('pdf2b', 'link2b')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+          📄 Ver conteúdo
+        </button>
+        <a id="link2b" href="pdfs/3-semana2-desintoxicacao-e-ajuste.pdf" target="_blank" class="hidden">Abrir PDF</a>
+        <div id="pdf2b" class="hidden mt-2">
+          <iframe src="pdfs/3-semana2-desintoxicacao-e-ajuste.pdf" class="w-full h-[500px] border rounded" frameborder="0"></iframe>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-base font-medium mb-2">Cardápio Semana 3</h3>
+        <button onclick="togglePDF('pdf2c', 'link2c')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+          📄 Ver conteúdo
+        </button>
+        <a id="link2c" href="pdfs/4-semana3-aceleracao-de-queima-e-manutencao.pdf" target="_blank" class="hidden">Abrir PDF</a>
+        <div id="pdf2c" class="hidden mt-2">
+          <iframe src="pdfs/4-semana3-aceleracao-de-queima-e-manutencao.pdf" class="w-full h-[500px] border rounded" frameborder="0"></iframe>
+        </div>
       </div>
     </div>
 
-    <!-- Adicione mais módulos seguindo o mesmo padrão -->
+    <!-- Módulo 3 -->
+    <div class="mb-8 bg-white rounded-lg shadow-md p-4">
+      <h2 class="text-xl font-semibold mb-1">3. Lista de Compras</h2>
+      <p class="text-sm text-gray-600 mb-4">Listas prontas para te ajudar na hora das compras semanais, sem esquecer nada.</p>
+
+      <div class="mb-4">
+        <h3 class="text-base font-medium mb-2">Lista de Compras Semana 1</h3>
+        <button onclick="togglePDF('pdf3a', 'link3a')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+          📄 Ver conteúdo
+        </button>
+        <a id="link3a" href="pdfs/5-lista-de-compras-semana1.pdf" target="_blank" class="hidden">Abrir PDF</a>
+        <div id="pdf3a" class="hidden mt-2">
+          <iframe src="pdfs/5-lista-de-compras-semana1.pdf" class="w-full h-[500px] border rounded" frameborder="0"></iframe>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <h3 class="text-base font-medium mb-2">Lista de Compras Semana 2</h3>
+        <button onclick="togglePDF('pdf3b', 'link3b')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+          📄 Ver conteúdo
+        </button>
+        <a id="link3b" href="pdfs/6-lista-de-compras-semana2.pdf" target="_blank" class="hidden">Abrir PDF</a>
+        <div id="pdf3b" class="hidden mt-2">
+          <iframe src="pdfs/6-lista-de-compras-semana2.pdf" class="w-full h-[500px] border rounded" frameborder="0"></iframe>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-base font-medium mb-2">Lista de Compras Semana 3</h3>
+        <button onclick="togglePDF('pdf3c', 'link3c')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+          📄 Ver conteúdo
+        </button>
+        <a id="link3c" href="pdfs/7-lista-de-compras-semana3.pdf" target="_blank" class="hidden">Abrir PDF</a>
+        <div id="pdf3c" class="hidden mt-2">
+          <iframe src="pdfs/7-lista-de-compras-semana3.pdf" class="w-full h-[500px] border rounded" frameborder="0"></iframe>
+        </div>
+      </div>
+    </div>
 
   </div>
-
 </body>
 </html>
