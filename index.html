@@ -6,19 +6,37 @@
   <title>Acessar Conteúdo</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
+    // Redireciona automaticamente se já tiver e-mail salvo
+    window.onload = function () {
+      const email = localStorage.getItem('email_usuario');
+      if (email) {
+        window.location.href = 'membros.html';
+      }
+    };
+
     function validarEmail(email) {
-      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return re.test(email.toLowerCase());
+      const re = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/; // expressão com barra invertida errada!
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); // expressão correta
     }
 
     function habilitarBotao(input) {
       const botao = document.getElementById('btnEntrar');
-      if (validarEmail(input.value)) {
+      const email = input.value.trim();
+      if (validarEmail(email)) {
         botao.disabled = false;
         botao.classList.remove('opacity-50', 'cursor-not-allowed');
       } else {
         botao.disabled = true;
         botao.classList.add('opacity-50', 'cursor-not-allowed');
+      }
+    }
+
+    function salvarEmailERedirecionar() {
+      const input = document.getElementById('emailInput');
+      const email = input.value.trim();
+      if (validarEmail(email)) {
+        localStorage.setItem('email_usuario', email);
+        window.location.href = 'membros.html';
       }
     }
   </script>
@@ -30,6 +48,7 @@
     <p class="text-sm text-gray-600 text-center mb-6">Insira seu e-mail para continuar</p>
 
     <input
+      id="emailInput"
       type="email"
       placeholder="Seu melhor e-mail"
       oninput="habilitarBotao(this)"
@@ -38,7 +57,7 @@
 
     <button
       id="btnEntrar"
-      onclick="window.location.href='membros.html'"
+      onclick="salvarEmailERedirecionar()"
       disabled
       class="w-full bg-blue-600 text-white py-3 rounded opacity-50 cursor-not-allowed transition"
     >

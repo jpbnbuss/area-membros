@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Área de Membros</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    function toggleDropdown() {
+      document.getElementById('logoutDropdown').classList.toggle('hidden');
+    }
+
+    function logout() {
+      localStorage.removeItem('email_usuario');
+      window.location.href = 'index.html';
+    }
+  </script>
 </head>
 <body class="bg-gray-100">
 
@@ -13,11 +23,16 @@
     <a href="membros.html">
       <img src="imgs/logo-lipodointestino2.png" alt="Logo" class="h-10">
     </a>
-    <button class="text-white">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.657A9.967 9.967 0 0112 18c-5.523 0-10-4.477-10-10S6.477-2 12-2s10 4.477 10 10c0 2.098-.645 4.042-1.743 5.657L21 21l-5.657-3.343z" />
-      </svg>
-    </button>
+    <div class="relative">
+      <button onclick="toggleDropdown()" class="text-gray-700">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L21 12l-3.75 5.25M3 12h18" />
+        </svg>
+      </button>
+      <div id="logoutDropdown" class="absolute right-0 mt-2 w-32 bg-white border rounded shadow-lg hidden">
+        <button onclick="logout()" class="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-100">Sair</button>
+      </div>
+    </div>
   </header>
 
   <!-- CARROSSEL DE BANNERS 
